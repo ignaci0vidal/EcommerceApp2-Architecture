@@ -2,7 +2,7 @@
   "schema_version": 1,
   "diagram_type": "architecture",
   "meta": {
-    "title": "EcommerceApp2 (PP3) — Arquitectura propuesta",
+    "title": "EcommerceApp2 (PP3) ÔÇö Arquitectura propuesta",
     "output": "ecommerceapp2.architecture.html",
     "quality_profile": "showcase",
     "views": [
@@ -16,18 +16,18 @@
           "catalogo",
           "pedidos"
         ],
-        "note": "El frontend usa un único punto de entrada y el Gateway enruta hacia cada backend."
+        "note": "El frontend usa un ├║nico punto de entrada y el Gateway enruta hacia cada backend."
       },
       {
         "id": "identity",
-        "label": "Autenticación",
+        "label": "Autenticaci├│n",
         "focus": [
           "frontend",
           "gateway",
           "usuarios",
           "db-usuarios"
         ],
-        "note": "El frontend envía el Bearer Token al Gateway; Usuarios mantiene la identidad y los datos del usuario."
+        "note": "El frontend env├¡a el Bearer Token al Gateway; Usuarios mantiene la identidad y los datos del usuario."
       },
       {
         "id": "checkout",
@@ -40,7 +40,7 @@
           "db-pedidos",
           "db-catalogo"
         ],
-        "note": "Pedidos coordina la creación del pedido y consulta Catálogo para disponibilidad y stock."
+        "note": "Pedidos coordina la creaci├│n del pedido y consulta Cat├ílogo para disponibilidad y stock."
       }
     ]
   },
@@ -49,10 +49,10 @@
       "id": "frontend",
       "type": "frontend",
       "label": "Frontend Web",
-      "sublabel": "HTML / CSS / JavaScript · Vercel",
+      "sublabel": "HTML / CSS / JavaScript ┬À Vercel",
       "pos": [
         390,
-        40
+        30
       ],
       "size": [
         220,
@@ -67,22 +67,22 @@
       "sublabel": "Node.js + Express",
       "pos": [
         390,
-        180
+        190
       ],
       "size": [
         220,
         82
       ],
-      "tag": "CORS · JWT · routing"
+      "tag": "CORS ┬À JWT ┬À routing"
     },
     {
       "id": "usuarios",
       "type": "backend",
       "label": "API Usuarios",
-      "sublabel": "Auth · User · Cliente · Carrito",
+      "sublabel": "Auth ┬À User ┬À Cliente ┬À Carrito",
       "pos": [
-        90,
-        360
+        60,
+        390
       ],
       "size": [
         220,
@@ -92,11 +92,11 @@
     {
       "id": "catalogo",
       "type": "backend",
-      "label": "API Catálogo",
-      "sublabel": "Producto · Categoría · Stock · Cupón",
+      "label": "API Cat├ílogo",
+      "sublabel": "Producto ┬À Categor├¡a ┬À Stock ┬À Cup├│n",
       "pos": [
         390,
-        360
+        390
       ],
       "size": [
         220,
@@ -107,10 +107,10 @@
       "id": "pedidos",
       "type": "backend",
       "label": "API Pedidos",
-      "sublabel": "Pedido · DetallePedido · Ticket · Checkout",
+      "sublabel": "Pedido ┬À DetallePedido ┬À Ticket ┬À Checkout",
       "pos": [
-        690,
-        360
+        720,
+        390
       ],
       "size": [
         220,
@@ -123,8 +123,8 @@
       "label": "DB Usuarios",
       "sublabel": "Persistencia exclusiva",
       "pos": [
-        90,
-        540
+        60,
+        600
       ],
       "size": [
         220,
@@ -134,11 +134,11 @@
     {
       "id": "db-catalogo",
       "type": "database",
-      "label": "DB Catálogo",
+      "label": "DB Cat├ílogo",
       "sublabel": "Persistencia exclusiva",
       "pos": [
         390,
-        540
+        600
       ],
       "size": [
         220,
@@ -151,8 +151,8 @@
       "label": "DB Pedidos",
       "sublabel": "Persistencia exclusiva",
       "pos": [
-        690,
-        540
+        720,
+        600
       ],
       "size": [
         220,
@@ -194,57 +194,159 @@
       "from": "frontend",
       "to": "gateway",
       "label": "HTTPS / REST + Bearer JWT",
-      "variant": "emphasis"
+      "variant": "emphasis",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        500,
+        150
+      ]
     },
     {
       "id": "gateway-usuarios",
       "from": "gateway",
       "to": "usuarios",
-      "label": "/api/usuarios"
+      "label": "/api/usuarios",
+      "fromSide": "left",
+      "toSide": "top",
+      "via": [
+        [
+          330,
+          231
+        ],
+        [
+          170,
+          231
+        ],
+        [
+          170,
+          365
+        ]
+      ],
+      "labelAt": [
+        250,
+        220
+      ]
     },
     {
       "id": "gateway-catalogo",
       "from": "gateway",
       "to": "catalogo",
-      "label": "/api/catalogo"
+      "label": "/api/catalogo",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        500,
+        340
+      ]
     },
     {
       "id": "gateway-pedidos",
       "from": "gateway",
       "to": "pedidos",
-      "label": "/api/pedidos"
+      "label": "/api/pedidos",
+      "fromSide": "right",
+      "toSide": "top",
+      "via": [
+        [
+          670,
+          231
+        ],
+        [
+          830,
+          231
+        ],
+        [
+          830,
+          365
+        ]
+      ],
+      "labelAt": [
+        750,
+        220
+      ]
     },
     {
       "id": "usuarios-db",
       "from": "usuarios",
       "to": "db-usuarios",
-      "label": "CRUD"
+      "label": "CRUD",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        170,
+        555
+      ]
     },
     {
       "id": "catalogo-db",
       "from": "catalogo",
       "to": "db-catalogo",
-      "label": "CRUD"
+      "label": "CRUD",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        500,
+        555
+      ]
     },
     {
       "id": "pedidos-db",
       "from": "pedidos",
       "to": "db-pedidos",
-      "label": "CRUD"
+      "label": "CRUD",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        830,
+        555
+      ]
     },
     {
       "id": "pedidos-catalogo",
       "from": "pedidos",
       "to": "catalogo",
-      "label": "HTTP REST · consultar stock",
-      "variant": "dashed"
+      "label": "consultar stock",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "bottom",
+      "via": [
+        [
+          830,
+          520
+        ],
+        [
+          500,
+          520
+        ]
+      ],
+      "labelAt": [
+        665,
+        510
+      ]
     },
     {
       "id": "pedidos-usuarios",
       "from": "pedidos",
       "to": "usuarios",
-      "label": "HTTP REST · validar usuario",
-      "variant": "dashed"
+      "label": "validar usuario",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "top",
+      "via": [
+        [
+          830,
+          15
+        ],
+        [
+          170,
+          15
+        ]
+      ],
+      "labelAt": [
+        500,
+        -8
+      ]
     }
   ],
   "cards": [
@@ -252,18 +354,18 @@
       "dot": "cyan",
       "title": "Gateway",
       "items": [
-        "Punto único de entrada para el frontend",
-        "Enrutamiento hacia Usuarios, Catálogo y Pedidos",
+        "Punto ├║nico de entrada para el frontend",
+        "Enrutamiento hacia Usuarios, Cat├ílogo y Pedidos",
         "CORS y manejo transversal de JWT",
         "Sin base de datos propia"
       ]
     },
     {
       "dot": "emerald",
-      "title": "Separación por dominio",
+      "title": "Separaci├│n por dominio",
       "items": [
         "Cada backend tiene una responsabilidad de negocio",
-        "Cada servicio es dueño exclusivo de su base",
+        "Cada servicio es due├▒o exclusivo de su base",
         "Los servicios se comunican por HTTP REST"
       ]
     },
